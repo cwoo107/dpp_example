@@ -69,7 +69,7 @@ class WebhooksController < ApplicationController
       puts "params"
       pp params
       puts "body"
-      pp request.body
+      pp JSON.parse(request.body.read)
       params.permit!
     end
 end
