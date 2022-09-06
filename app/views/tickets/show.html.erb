@@ -64,8 +64,7 @@
 </div>
 
 <div>
-  <%= link_to "Edit this ticket", edit_ticket_path(@ticket), class: 'btn btn-success' %> |
   <%= link_to "Back to tickets", tickets_path, class: 'btn btn-secondary' %>
 
-  <%= button_to "Destroy this ticket", @ticket, method: :delete, class: 'btn btn-danger' %>
+  <%= button_to "Delete this ticket", @ticket, method: :delete, class: 'btn btn-danger' %>
 </div>
