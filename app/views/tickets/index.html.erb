@@ -17,10 +17,9 @@
       <td><%= ticket.created_at%></td>
       <td><%= ticket.station_code%></td>
       <td><%= ticket.ticket_number%></td>
-      <td><%= link_to "View ticket", ticket %></td>
+      <td><%= link_to "View ticket", ticket, class: 'btn btn-primary' %></td>
     </tr>
   <% end %>
 
   </tbody>
 </table>
-<%= link_to "New ticket", new_ticket_path %>
