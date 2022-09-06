@@ -66,6 +66,10 @@ class WebhooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def webhook_params
+      puts "params"
+      pp params
+      puts "body"
+      pp request.body
       params.permit!
     end
 end
