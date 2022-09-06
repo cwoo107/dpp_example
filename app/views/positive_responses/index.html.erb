@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Positive responses</h1>
+
+<div id="positive_responses">
+  <% @positive_responses.each do |positive_response| %>
+    <%= render positive_response %>
+    <p>
+      <%= link_to "Show this positive response", positive_response %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New positive response", new_positive_response_path %>

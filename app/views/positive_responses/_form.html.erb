@@ -1,0 +1,52 @@
+<%= form_with(model: positive_response) do |form| %>
+  <% if positive_response.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(positive_response.errors.count, "error") %> prohibited this positive_response from being saved:</h2>
+
+      <ul>
+        <% positive_response.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :station, style: "display: block" %>
+    <%= form.text_field :station %>
+  </div>
+
+  <div>
+    <%= form.label :locateCode, style: "display: block" %>
+    <%= form.text_field :locateCode %>
+  </div>
+
+  <div>
+    <%= form.label :reason, style: "display: block" %>
+    <%= form.text_field :reason %>
+  </div>
+
+  <div>
+    <%= form.label :isNoteVisibleToContractor, style: "display: block" %>
+    <%= form.check_box :isNoteVisibleToContractor %>
+  </div>
+
+  <div>
+    <%= form.label :accountNameOfPositiveResponseProvider, style: "display: block" %>
+    <%= form.text_field :accountNameOfPositiveResponseProvider %>
+  </div>
+
+  <div>
+    <%= form.label :server_response, style: "display: block" %>
+    <%= form.text_field :server_response %>
+  </div>
+
+  <div>
+    <%= form.label :ticket_id, style: "display: block" %>
+    <%= form.text_field :ticket_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

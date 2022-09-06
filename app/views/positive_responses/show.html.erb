@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @positive_response %>
+
+<div>
+  <%= link_to "Edit this positive response", edit_positive_response_path(@positive_response) %> |
+  <%= link_to "Back to positive responses", positive_responses_path %>
+
+  <%= button_to "Destroy this positive response", @positive_response, method: :delete %>
+</div>

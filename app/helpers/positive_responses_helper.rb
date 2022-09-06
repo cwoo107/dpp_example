@@ -1,0 +1,2 @@
+module PositiveResponsesHelper
+end

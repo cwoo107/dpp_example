@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  station: MyString
+  locateCode: MyString
+  reason: MyString
+  isNoteVisibleToContractor: false
+  accountNameOfPositiveResponseProvider: MyString
+  server_response: MyString
+  ticket: one
+
+two:
+  station: MyString
+  locateCode: MyString
+  reason: MyString
+  isNoteVisibleToContractor: false
+  accountNameOfPositiveResponseProvider: MyString
+  server_response: MyString
+  ticket: two
