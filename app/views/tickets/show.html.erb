@@ -2,7 +2,66 @@
 
 <%= render @ticket %>
 
-<%= @ticket.data %>
+<div class="table-responsive">
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <% @ticket.data['OneCallReferral']['CustomerDetails'].keys.each do |key| %>
+      <th scope="col"><%= key %></th>
+    <% end %>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <% @ticket.data['OneCallReferral']['CustomerDetails'].values.each do |value| %>
+
+      <td><%= value.to_s.truncate(50)%></td>
+
+
+    <% end %>
+  </tr>
+  </tbody>
+</table>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <% @ticket.data['OneCallReferral']['ReferralDetails'].keys.each do |key| %>
+    <th scope="col"><%= key %></th>
+    <% end %>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <% @ticket.data['OneCallReferral']['ReferralDetails'].values.each do |value| %>
+
+      <td><%= value.to_s.truncate(50)%></td>
+
+
+  <% end %>
+  </tr>
+  </tbody>
+</table>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <% @ticket.data['OneCallReferral']['LocationDetails'].keys.each do |key| %>
+      <th scope="col"><%= key %></th>
+    <% end %>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <% @ticket.data['OneCallReferral']['LocationDetails'].values.each do |value| %>
+
+      <td><%= value.to_s.truncate(50) %></td>
+
+
+    <% end %>
+  </tr>
+  </tbody>
+</table>
+</div>
 
 <div>
   <%= link_to "Edit this ticket", edit_ticket_path(@ticket) %> |

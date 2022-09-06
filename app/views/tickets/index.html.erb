@@ -11,4 +11,23 @@
   <% end %>
 </div>
 
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Station Code</th>
+    <th scope="col">Ticket Number</th>
+    <th scope="col">Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @tickets.each do |ticket| %>
+    <tr>
+      <td><%= ticket.station_code%></td>
+      <td><%= ticket.ticket_number%></td>
+      <td><%= link_to "View ticket", ticket %></td>
+    </tr>
+  <% end %>
+
+  </tbody>
+</table>
 <%= link_to "New ticket", new_ticket_path %>

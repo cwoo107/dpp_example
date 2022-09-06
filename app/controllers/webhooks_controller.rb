@@ -22,7 +22,7 @@ class WebhooksController < ApplicationController
 
   # POST /webhooks or /webhooks.json
   def create
-    @webhook = Webhook.new(body: webhook_params)
+    @webhook = Webhook.new(body: JSON.parse(request.body.read))
 
     respond_to do |format|
       if @webhook.save
