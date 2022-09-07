@@ -2,13 +2,31 @@
 
 <h1>Webhooks</h1>
 
-<div id="webhooks">
-  <% @webhooks.each do |webhook| %>
-    <%= render webhook %>
-    <p>
-      <%= link_to "Show this webhook", webhook %>
-    </p>
-  <% end %>
+<div id="webhooks" class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <% @webhooks.first.body.keys.each do |key| %>
+        <th scope="col"><%= key %></th>
+      <% end %>
+      <th scope="col">View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @webhooks.each do |webhook| %>
+    <tr>
+      <% webhook.body.values.each do |value| %>
+
+        <td><%= value.to_s.truncate(50) %></td>
+
+
+      <% end %>
+      <td><%= link_to "View", webhook, class: 'btn btn-primary' %></td>
+    </tr>
+    <% end %>
+
+    </tbody>
+  </table>
+
 </div>
 
-<%= link_to "New webhook", new_webhook_path %>

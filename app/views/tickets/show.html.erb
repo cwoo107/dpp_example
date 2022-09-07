@@ -3,65 +3,98 @@
 <%= render @ticket %>
 
 <div class="table-responsive">
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <% @ticket.data['OneCallReferral']['CustomerDetails'].keys.each do |key| %>
-      <th scope="col"><%= key %></th>
-    <% end %>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <% @ticket.data['OneCallReferral']['CustomerDetails'].values.each do |value| %>
+  <% if @ticket.data != 'N/A' %>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <% @ticket.data['OneCallReferral']['CustomerDetails'].keys.each do |key| %>
+          <th scope="col"><%= key %></th>
+        <% end %>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <% @ticket.data['OneCallReferral']['CustomerDetails'].values.each do |value| %>
 
-      <td><%= value.to_s.truncate(50)%></td>
-
-
-    <% end %>
-  </tr>
-  </tbody>
-</table>
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <% @ticket.data['OneCallReferral']['ReferralDetails'].keys.each do |key| %>
-    <th scope="col"><%= key %></th>
-    <% end %>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <% @ticket.data['OneCallReferral']['ReferralDetails'].values.each do |value| %>
-
-      <td><%= value.to_s.truncate(50)%></td>
+          <td><%= value.to_s.truncate(50)%></td>
 
 
+        <% end %>
+      </tr>
+      </tbody>
+    </table>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <% @ticket.data['OneCallReferral']['ReferralDetails'].keys.each do |key| %>
+          <th scope="col"><%= key %></th>
+        <% end %>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <% @ticket.data['OneCallReferral']['ReferralDetails'].values.each do |value| %>
+
+          <td><%= value.to_s.truncate(50)%></td>
+
+
+        <% end %>
+      </tr>
+      </tbody>
+    </table>
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <% @ticket.data['OneCallReferral']['LocationDetails'].keys.each do |key| %>
+          <th scope="col"><%= key %></th>
+        <% end %>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <% @ticket.data['OneCallReferral']['LocationDetails'].values.each do |value| %>
+
+          <td><%= value.to_s.truncate(50) %></td>
+
+
+        <% end %>
+      </tr>
+      </tbody>
+    </table>
   <% end %>
-  </tr>
-  </tbody>
-</table>
-
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <% @ticket.data['OneCallReferral']['LocationDetails'].keys.each do |key| %>
-      <th scope="col"><%= key %></th>
-    <% end %>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <% @ticket.data['OneCallReferral']['LocationDetails'].values.each do |value| %>
-
-      <td><%= value.to_s.truncate(50) %></td>
-
-
-    <% end %>
-  </tr>
-  </tbody>
-</table>
 </div>
+
+<br/>
+<div class="container-fluid">
+  <p>
+    <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Show XML</a>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Show GML</button>
+  </p>
+  <div class="collapse multi-collapse" id="multiCollapseExample1">
+    <div class="row">
+      <div class="col">
+        <div class="card card-body">
+          <h2>XML</h2>
+          <code><pre><%= @ticket.data.to_xml %></pre></code>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="collapse multi-collapse" id="multiCollapseExample2">
+  <div class="row">
+    <div class="col">
+        <div class="card card-body">
+          <h2>GML</h2>
+          <% if @ticket.gml_data.present? %>
+            <code><pre><%= @ticket.gml_data.to_xml %></pre></code>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br/>
 
 <div class="container-fluid">
   <div class="row">
