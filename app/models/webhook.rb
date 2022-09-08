@@ -25,6 +25,7 @@ class Webhook < ApplicationRecord
                   station_code: self.body['Message']['StationCode'],
                   ticket_number: self.body['Message']['TicketNumber'],
                   data: xml,
-                  gml_data: gml)
+                  gml_data: gml,
+                  gif: self.body['Message']['GIFBase64'] )
   end
 end

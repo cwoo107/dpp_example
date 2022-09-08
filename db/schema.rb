@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_07_214644) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_08_155737) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,6 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_214644) do
     t.string "ticket_number"
     t.json "data"
     t.json "gml_data"
+    t.string "gif"
   end
 
   create_table "webhooks", force: :cascade do |t|

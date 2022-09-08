@@ -70,6 +70,7 @@
   <p>
     <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Show XML</a>
     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Show GML</button>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Show GIF</button>
   </p>
   <div class="collapse multi-collapse" id="multiCollapseExample1">
     <div class="row">
@@ -88,6 +89,18 @@
           <h2>GML</h2>
           <% if @ticket.gml_data.present? %>
             <code><pre><%= @ticket.gml_data.to_xml %></pre></code>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="collapse multi-collapse" id="multiCollapseExample3">
+    <div class="row">
+      <div class="col">
+        <div class="card card-body">
+          <h2>GIF</h2>
+          <% if @ticket.gif.present? %>
+            <img src="data:image/gif;base64,<%=@ticket.gif %>">
           <% end %>
         </div>
       </div>
