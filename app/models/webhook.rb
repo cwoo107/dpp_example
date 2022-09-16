@@ -21,11 +21,19 @@ class Webhook < ApplicationRecord
       gml = 'N/A'
     end
 
+    if self.body['Message']['TXTBase64'].present?
+      txt = self.body['Message']['TXTBase64']
+      txt = Base64.decode64(txt)
+    else
+      gml = 'N/A'
+    end
+
     Ticket.create(utility_name: self.body['Message']['UtilityName'],
                   station_code: self.body['Message']['StationCode'],
                   ticket_number: self.body['Message']['TicketNumber'],
                   data: xml,
                   gml_data: gml,
-                  gif: self.body['Message']['GIFBase64'] )
+                  gif: self.body['Message']['GIFBase64'],
+                  txt: txt)
   end
 end
