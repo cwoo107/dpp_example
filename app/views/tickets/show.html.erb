@@ -3,7 +3,7 @@
 <%= render @ticket %>
 
 <div class="table-responsive">
-  <% if @ticket.data != 'N/A' %>
+  <% if @ticket.data.present? %>
     <table class="table table-striped">
       <thead>
       <tr>
