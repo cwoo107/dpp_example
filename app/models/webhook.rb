@@ -10,7 +10,7 @@ class Webhook < ApplicationRecord
     xml = Base64.decode64(xml)
     xml = JSON.parse(Hash.from_xml(xml).to_json)
     else
-      xml = 'N/A'
+      xml = nil
     end
 
     if self.body['Message']['GMLBase64'].present?
@@ -18,14 +18,14 @@ class Webhook < ApplicationRecord
       gml = Base64.decode64(gml)
       gml = JSON.parse(Hash.from_xml(gml).to_json)
     else
-      gml = 'N/A'
+      gml = nil
     end
 
     if self.body['Message']['TXTBase64'].present?
       txt = self.body['Message']['TXTBase64']
       txt = Base64.decode64(txt)
     else
-      gml = 'N/A'
+      gml = nil
     end
 
     Ticket.create(utility_name: self.body['Message']['UtilityName'],
